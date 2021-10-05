@@ -1,0 +1,34 @@
+.ColorForm {
+  text-align: center;
+}
+
+.ColorForm-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  margin: 50px;
+}
+
+.ColorForm-field {
+  margin: 10px;
+}
+
+.ColorForm-field > label {
+  padding: 10px;
+}
+
+.ColorForm-addBtn {
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.ColorForm-link {
+  margin: 50px;
+}
+

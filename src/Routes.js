@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 
 import ColorList from './ColorList';
@@ -7,16 +7,28 @@ import Color from './Color';
 
 
 const Routes = () => {
+
   const initialColors = [
     {name: 'blue', hex: '#343aeb'},
     {name: 'green', hex: '#257515'},
     {name: 'orange', hex: '#e38f12'}
   ];
 
-  const [colors, setColors] = useState(initialColors);
+  const useLocalStorage = (key, value) => {
+
+    const initalData = JSON.parse(localStorage.getItem(key)) || value;
+    const [data, setData] = useState(initalData);
+
+    useEffect(() => {
+      localStorage.setItem(key, JSON.stringify(data));
+    }, [key, data]);
+    
+    return [data, setData];
+  }
+
+  const [colors, setColors] = useLocalStorage('colors', initialColors);
 
   const addColor = (colorObj) => {
-    console.log(colorObj)
     setColors([...colors, colorObj]);
   }
 

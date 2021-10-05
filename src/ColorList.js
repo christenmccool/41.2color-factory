@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const ColorList = ({colors}) => {
   const renderColorLinks = () => (
-    colors.map(color => <Link to={`colors/${color.name}`}>{color.name}</Link>)
+    colors.map(color => <Link to={`colors/${color.name}`} key={color.hex}>{color.name}</Link>)
   )
 
   return (
